@@ -7,14 +7,12 @@
          placeholder="Search"
          dark
          borderless
-         
         >
         <template v-slot:before>
          <q-icon
             @click="getLocation"
             name="my_location" />
         </template>
-
         <template v-slot:append>
          <q-btn
             @click="getWeatherBySearch"
@@ -30,15 +28,12 @@
     <div class="col text-white text-center">
       <div class="text-h4 text-weight-light">
          {{weatherData.name}}
-        
       </div>
       <div class="text-h6 text-weight-light">
          {{weatherData.weather[0].main}} 
-         
       </div>
       <div class="text-h1 text-weight-thin q-my-lg relative-position">
          <span> {{Math.round(weatherData.main.temp)}}</span> 
-       
         <span class="text-h4 relative-position degree">&deg;C</span>
       </div>
     </div>
@@ -46,7 +41,6 @@
       <img :src="`http://openweathermap.org/img/wn/${ weatherData.weather[0].icon }@2x.png`"> 
     </div>
     </template>
-
     <template v-else>
       <div class="col column text-center text-white">
         <div class="col text-h2 text-weight-thin">
@@ -61,11 +55,8 @@
         </q-btn>
       </div>
     </template>
-
     <div class="col skyline">
-
     </div>
-   
   </q-page>
 </template>
 
@@ -107,9 +98,7 @@ export default defineComponent({
           this.lon = response.data.longitude
           this.getWeatherByCoords()
         })
-
       }
-
       else {
         navigator.geolocation.getCurrentPosition
         (position => {
@@ -118,9 +107,7 @@ export default defineComponent({
           this.lon = position.coords.longitude
           this.getWeatherByCoords()
         })
-
       }
-
     },
      getWeatherByCoords(){
        this.$q.loading.show()
@@ -147,10 +134,8 @@ export default defineComponent({
       background: linear-gradient(to bottom, #232526, #414345)
     &.bg-day
       background: linear-gradient(to bottom, #00b4db, #0083b0)
-
   .degree
-    top:-44px
-      
+    top:-44px  
   .skyline
     flex: 0 0 100px
     background: url(../statics/skyline.png)
